@@ -57,16 +57,40 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Mobile Menu Toggle (Simplified)
+    // Mobile Menu Logic
     const mobileMenuBtn = document.getElementById('mobile-menu');
-    const navLinks = document.querySelector('.nav-links');
+    const menuCloseBtn = document.getElementById('menu-close');
+    const navLinksList = document.querySelector('.nav-links');
+    const navOverlay = document.getElementById('nav-overlay');
+    const navItems = document.querySelectorAll('.nav-links a');
+
+    const toggleMenu = () => {
+        navLinksList.classList.toggle('show');
+        navOverlay.classList.toggle('show');
+        // Prevent scrolling when menu is open
+        document.body.style.overflow = navLinksList.classList.contains('show') ? 'hidden' : '';
+    };
 
     if (mobileMenuBtn) {
-        mobileMenuBtn.addEventListener('click', () => {
-            // In a real app, this would toggle a visible class for the mobile drawer
-            alert('Mobile menu clicked! (To be fully implemented if needed)');
-        });
+        mobileMenuBtn.addEventListener('click', toggleMenu);
     }
+
+    if (menuCloseBtn) {
+        menuCloseBtn.addEventListener('click', toggleMenu);
+    }
+
+    if (navOverlay) {
+        navOverlay.addEventListener('click', toggleMenu);
+    }
+
+    // Close menu when clicking a link
+    navItems.forEach(item => {
+        item.addEventListener('click', () => {
+            if (navLinksList.classList.contains('show')) {
+                toggleMenu();
+            }
+        });
+    });
 
     // Smooth reveal for header on scroll
     let lastScroll = 0;
