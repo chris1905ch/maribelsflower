@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maribel's Flower Shop | Elegancia y Romance Floral</title>
+    <meta name="description"
+        content="Arreglos florales modernos y románticos para toda ocasión. Maribel's Flower Shop, donde cada flor cuenta una historia.">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap"
+        rel="stylesheet">
+    <!-- Font Awesome for Social Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header id="main-header">
+        <nav class="container">
+            <div class="logo">
+                <img src="assets/logo.png" alt="Maribel's Flower Shop Logo">
+            </div>
+            <ul class="nav-links">
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#catalogo">Arreglos</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+            <div class="menu-toggle" id="mobile-menu">
+                <i class="fas fa-bars"></i>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section id="inicio" class="hero">
+            <div class="hero-content container">
+                <h1 class="reveal reveal-up">Arreglos que Enamoran</h1>
+                <p class="reveal reveal-up delay-1">Diseños florales exclusivos para momentos inolvidables.</p>
+                <a href="#catalogo" class="btn btn-primary reveal reveal-up delay-2">Ver Catálogo</a>
+            </div>
+            <div class="hero-overlay"></div>
+        </section>
+
+        <section id="catalogo" class="catalog container">
+            <div class="section-title reveal reveal-up">
+                <h2>Nuestras Creaciones</h2>
+                <div class="underline"></div>
+            </div>
+
+            <div class="filter-buttons reveal reveal-up delay-1">
+                <button class="filter-btn active" data-filter="all">Todos</button>
+                <button class="filter-btn" data-filter="romantico">Románticos</button>
+                <button class="filter-btn" data-filter="primavera">Primavera</button>
+                <button class="filter-btn" data-filter="premium">Premium</button>
+            </div>
+
+            <div class="arrangements-grid">
+                <div class="card reveal reveal-up" data-category="romantico">
+                    <div class="card-img">
+                        <img src="assets/arrangement_premium_rose.png" alt="Arreglo de Rosas">
+                    </div>
+                    <div class="card-info">
+                        <h3>Suspiro de Amor</h3>
+                        <p>Elegante combinación de rosas en tonos rosados y crema.</p>
+                        <span class="price">$45.00</span>
+                        <a href="https://wa.me/50372479431?text=Hola,%20me%20interesa%20ordenar%20el%20arreglo%20Suspiro%20de%20Amor"
+                            class="btn-order">Ordenar por WhatsApp</a>
+                    </div>
+                </div>
+
+                <!-- Arrangement 2 -->
+                <div class="card reveal reveal-up delay-1" data-category="premium">
+                    <div class="card-img">
+                        <img src="assets/hero_flower_arrangement.png" alt="Arreglo Premium">
+                    </div>
+                    <div class="card-info">
+                        <h3>Gala Imperial</h3>
+                        <p>Arreglo majestuoso con lirios, hidrangeas y follaje premium.</p>
+                        <span class="price">$85.00</span>
+                        <a href="https://wa.me/50372479431?text=Hola,%20me%20interesa%20ordenar%20el%20arreglo%20Gala%20Imperial"
+                            class="btn-order">Ordenar por WhatsApp</a>
+                    </div>
+                </div>
+
+                <!-- Arrangement 3 -->
+                <div class="card reveal reveal-up delay-2" data-category="primavera">
+                    <div class="card-img">
+                        <img src="assets/arrangement_spring_lilies_teal.png" alt="Arreglo Primavera">
+                    </div>
+                    <div class="card-info">
+                        <h3>Amanecer Alegre</h3>
+                        <p>Vibrantes lirios naranjas con toques de verde azulado.</p>
+                        <span class="price">$35.00</span>
+                        <a href="https://wa.me/50372479431?text=Hola,%20me%20interesa%20ordenar%20el%20arreglo%20Amanecer%20Alegre"
+                            class="btn-order">Ordenar por WhatsApp</a>
+                    </div>
+                </div>
+
+                <!-- Arrangement 4 - NEW (Romántico) -->
+                <div class="card reveal reveal-up" data-category="romantico">
+                    <div class="card-img">
+                        <img src="assets/arrangement_romantic_rose_heart.png" alt="Corazón de Pasión">
+                    </div>
+                    <div class="card-info">
+                        <h3>Corazón de Pasión</h3>
+                        <p>Arreglo en forma de corazón con las mejores rosas rojas premium.</p>
+                        <span class="price">$55.00</span>
+                        <a href="https://wa.me/50372479431?text=Hola,%20me%20interesa%20ordenar%20el%20arreglo%20Corazón%20de%20Pasión"
+                            class="btn-order">Ordenar por WhatsApp</a>
+                    </div>
+                </div>
+
+                <!-- Arrangement 5 - NEW (Romántico) -->
+                <div class="card reveal reveal-up delay-1" data-category="romantico">
+                    <div class="card-img">
+                        <img src="assets/arrangement_romantic_pink_tulips.png" alt="Dulzura de Tulipanes">
+                    </div>
+                    <div class="card-info">
+                        <h3>Dulzura de Tulipanes</h3>
+                        <p>Tiernos tulipanes rosados acompañados de nube blanca.</p>
+                        <span class="price">$42.00</span>
+                        <a href="https://wa.me/50372479431?text=Hola,%20me%20interesa%20ordenar%20el%20arreglo%20Dulzura%20de%20Tulipanes"
+                            class="btn-order">Ordenar por WhatsApp</a>
+                    </div>
+                </div>
+
+                <!-- Arrangement 6 - NEW (Primavera) -->
+                <div class="card reveal reveal-up delay-2" data-category="primavera">
+                    <div class="card-img">
+                        <img src="assets/arrangement_spring_sunflowers.png" alt="Rayo de Sol">
+                    </div>
+                    <div class="card-info">
+                        <h3>Rayo de Sol</h3>
+                        <p>Girasoles radiantes y margaritas para iluminar cualquier día.</p>
+                        <span class="price">$30.00</span>
+                        <a href="https://wa.me/50372479431?text=Hola,%20me%20interesa%20ordenar%20el%20arreglo%20Rayo%20de%20Sol"
+                            class="btn-order">Ordenar por WhatsApp</a>
+                    </div>
+                </div>
+
+                <!-- Arrangement 7 - NEW (Primavera) -->
+                <div class="card reveal reveal-up" data-category="primavera">
+                    <div class="card-img">
+                        <img src="assets/arrangement_spring_mixed_garden.png" alt="Jardín de Colores">
+                    </div>
+                    <div class="card-info">
+                        <h3>Jardín de Colores</h3>
+                        <p>Mezcla Silvestre de flores de temporada llenas de vida.</p>
+                        <span class="price">$38.00</span>
+                        <a href="https://wa.me/50372479431?text=Hola,%20me%20interesa%20ordenar%20el%20arreglo%20Jardín%20de%20Colores"
+                            class="btn-order">Ordenar por WhatsApp</a>
+                    </div>
+                </div>
+
+                <!-- Arrangement 8 - NEW (Premium) -->
+                <div class="card reveal reveal-up delay-1" data-category="premium">
+                    <div class="card-img">
+                        <img src="assets/arrangement_premium_orchids_white.png" alt="Elegancia Blanca">
+                    </div>
+                    <div class="card-info">
+                        <h3>Elegancia Blanca</h3>
+                        <p>Exclusivas orquídeas y lirios cala en una presentación de lujo.</p>
+                        <span class="price">$95.00</span>
+                        <a href="https://wa.me/50372479431?text=Hola,%20me%20interesa%20ordenar%20el%20arreglo%20Elegancia%20Blanca"
+                            class="btn-order">Ordenar por WhatsApp</a>
+                    </div>
+                </div>
+
+                <!-- Arrangement 9 - NEW (Premium) -->
+                <div class="card reveal reveal-up delay-2" data-category="premium">
+                    <div class="card-img">
+                        <img src="assets/arrangement_premium_exotic_paradise.png" alt="Paraíso Exótico">
+                    </div>
+                    <div class="card-info">
+                        <h3>Paraíso Exótico</h3>
+                        <p>Flores de paraíso y jengibre tropical para un regalo impactante.</p>
+                        <span class="price">$75.00</span>
+                        <a href="https://wa.me/50372479431?text=Hola,%20me%20interesa%20ordenar%20el%20arreglo%20Paraíso%20Exótico"
+                            class="btn-order">Ordenar por WhatsApp</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contacto" class="contact-section">
+            <div class="container contact-container">
+                <div class="contact-info">
+                    <h2 class="reveal reveal-up">Contáctanos</h2>
+                    <p class="reveal reveal-up delay-1">Estamos listos para hacer realidad tus sueños florales.</p>
+                    <div class="social-links">
+                        <a href="https://wa.me/50372479431" target="_blank" class="social-icon whatsapp">
+                            <i class="fab fa-whatsapp"></i>
+                        </a>
+                        <a href="https://instagram.com/maribelsflowershop" target="_blank"
+                            class="social-icon instagram">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container footer-content">
+            <p>&copy; 2023 Maribel's Flower Shop. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Floating Button -->
+    <a href="https://wa.me/50372479431" class="whatsapp-float" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
