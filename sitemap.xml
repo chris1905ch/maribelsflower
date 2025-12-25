@@ -1,9 +1,52 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://maribelsflower.vercel.app/</loc>
     <lastmod>2025-12-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
+    
+    <!-- Suspiro de Amor -->
+    <image:image>
+      <image:loc>https://maribelsflower.vercel.app/assets/arrangement_premium_rose.png</image:loc>
+      <image:title>Suspiro de Amor - Arreglo de rosas en Santa Ana</image:title>
+      <image:caption>Elegante combinación de rosas en tonos rosados y crema por Maribel's Flower Shop.</image:caption>
+    </image:image>
+    
+    <!-- Gala Imperial -->
+    <image:image>
+      <image:loc>https://maribelsflower.vercel.app/assets/hero_flower_arrangement.png</image:loc>
+      <image:title>Gala Imperial - Flores premium El Salvador</image:title>
+      <image:caption>Arreglo majestuoso con lirios, hidrangeas y follaje premium.</image:caption>
+    </image:image>
+    
+    <!-- Amanecer Alegre -->
+    <image:image>
+      <image:loc>https://maribelsflower.vercel.app/assets/arrangement_spring_lilies_teal.png</image:loc>
+      <image:title>Amanecer Alegre - Floristería Santa Ana</image:title>
+      <image:caption>Vibrantes lirios naranjas con toques de verde azulado.</image:caption>
+    </image:image>
+    
+    <!-- Corazón de Pasión -->
+    <image:image>
+      <image:loc>https://maribelsflower.vercel.app/assets/arrangement_romantic_rose_heart.png</image:loc>
+      <image:title>Corazón de Pasión - Rosas en Santa Ana</image:title>
+      <image:caption>Arreglo en forma de corazón con las mejores rosas rojas premium.</image:caption>
+    </image:image>
+    
+    <!-- Dulzura de Tulipanes -->
+    <image:image>
+      <image:loc>https://maribelsflower.vercel.app/assets/arrangement_romantic_pink_tulips.png</image:loc>
+      <image:title>Dulzura de Tulipanes - Maribel's Flower Shop</image:title>
+      <image:caption>Tiernos tulipanes rosados acompañados de nube blanca.</image:caption>
+    </image:image>
+    
+    <!-- Rayo de Sol -->
+    <image:image>
+      <image:loc>https://maribelsflower.vercel.app/assets/arrangement_spring_sunflowers.png</image:loc>
+      <image:title>Rayo de Sol - Girasoles en Santa Ana</image:title>
+      <image:caption>Girasoles radiantes y margaritas para iluminar cualquier día.</image:caption>
+    </image:image>
   </url>
 </urlset>
