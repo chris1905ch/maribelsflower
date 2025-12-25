@@ -1,21 +1,45 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // Unified Reveal Animation Logic
-    const revealElements = document.querySelectorAll('.reveal');
+    // Preloader Logic
+    const preloader = document.getElementById('preloader');
+    const body = document.body;
 
-    const observerOptions = {
-        threshold: 0.15,
-        rootMargin: '0px 0px -50px 0px'
+    const startRevealAnimations = () => {
+        const revealElements = document.querySelectorAll('.reveal');
+
+        const observerOptions = {
+            threshold: 0.15,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, observerOptions);
+
+        revealElements.forEach(el => revealObserver.observe(el));
     };
 
-    const revealObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('active');
-            }
-        });
-    }, observerOptions);
+    if (preloader) {
+        // Wait 3 seconds (3000ms) as requested by user
+        setTimeout(() => {
+            preloader.classList.add('slide-up');
+            body.classList.remove('loading');
 
-    revealElements.forEach(el => revealObserver.observe(el));
+            // Start reveal animations as preloader fades
+            startRevealAnimations();
+
+            // Remove from DOM after transition completes (1.2s transition in CSS)
+            setTimeout(() => {
+                preloader.remove();
+            }, 1200);
+        }, 3000);
+    } else {
+        // If no preloader, start animations immediately
+        startRevealAnimations();
+    }
 
     // Hero Parallax Effect
     const hero = document.querySelector('.hero');
