@@ -129,4 +129,62 @@ document.addEventListener('DOMContentLoaded', () => {
         }
         lastScroll = currentScroll;
     });
+
+    // Valentine's Floating Hearts
+    const createHeart = () => {
+        if (document.hidden) return; // Don't create hearts if tab is inactive
+
+        const heart = document.createElement('div');
+        heart.classList.add('heart');
+        heart.innerHTML = '❤️';
+        heart.style.left = Math.random() * 100 + 'vw';
+        heart.style.animationDuration = (Math.random() * 3 + 2) + 's';
+        heart.style.opacity = Math.random() * 0.5 + 0.3;
+        heart.style.fontSize = (Math.random() * 10 + 15) + 'px';
+
+        document.body.appendChild(heart);
+
+        setTimeout(() => {
+            heart.remove();
+        }, 5000);
+    };
+
+    // Only start hearts after preloader is gone or if no preloader
+    const startHearts = () => {
+        setInterval(createHeart, 800);
+    };
+
+    if (preloader) {
+        // Preloader Hearts - subtle and elegant
+        const createPreloaderHeart = () => {
+            if (!document.getElementById('preloader')) return;
+
+            const heart = document.createElement('div');
+            heart.classList.add('heart');
+            heart.innerHTML = '❤️';
+
+            // Focus hearts around the logo area
+            const randomX = Math.random() * 60 - 30; // -30 to 30px offset
+            heart.style.left = `calc(50% + ${randomX}px)`;
+            heart.style.bottom = '40%'; // Start near the logo/text
+            heart.style.fontSize = (Math.random() * 5 + 10) + 'px';
+            heart.style.opacity = Math.random() * 0.3 + 0.1;
+
+            preloader.appendChild(heart);
+
+            setTimeout(() => {
+                heart.remove();
+            }, 3000);
+        };
+
+        const preloaderHeartInterval = setInterval(createPreloaderHeart, 600);
+
+        // Wait for preloader to finish (3000ms + 1200ms transition)
+        setTimeout(() => {
+            clearInterval(preloaderHeartInterval);
+            startHearts();
+        }, 4200);
+    } else {
+        startHearts();
+    }
 });
