@@ -155,7 +155,6 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     // Creative Blooming Preloader Logic
-    const preloader = document.getElementById('preloader');
     const preloaderText = document.querySelector('.preloader-text');
 
     if (preloaderText) {
