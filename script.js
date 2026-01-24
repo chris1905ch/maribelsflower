@@ -187,4 +187,50 @@ document.addEventListener('DOMContentLoaded', () => {
     } else {
         startHearts();
     }
+
+    // Lightbox Logic
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightbox-img');
+    const captionText = document.getElementById('lightbox-caption');
+    const closeBtn = document.querySelector('.lightbox-close');
+
+    // Get all card images
+    const cardImages = document.querySelectorAll('.card-img img');
+
+    cardImages.forEach(img => {
+        img.parentElement.addEventListener('click', () => {
+            lightbox.style.display = 'block';
+            lightboxImg.src = img.src;
+            // Use the arrangement title as caption
+            const cardInfo = img.closest('.card').querySelector('.card-info h3');
+            captionText.innerHTML = cardInfo ? cardInfo.innerText : img.alt;
+
+            // Disable scroll
+            document.body.style.overflow = 'hidden';
+        });
+    });
+
+    const closeLightbox = () => {
+        lightbox.style.display = 'none';
+        document.body.style.overflow = '';
+    };
+
+    if (closeBtn) {
+        closeBtn.addEventListener('click', closeLightbox);
+    }
+
+    if (lightbox) {
+        lightbox.addEventListener('click', (e) => {
+            if (e.target === lightbox) {
+                closeLightbox();
+            }
+        });
+    }
+
+    // Escape key to close
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && lightbox.style.display === 'block') {
+            closeLightbox();
+        }
+    });
 });
