@@ -645,21 +645,6 @@ footer {
     font-size: 1.1rem;
 }
 
-/* Funeral Section specific styles */
-.funeral-section {
-    padding: 120px 0;
-    background-color: #f7f3f4;
-    /* Slightly different background to differentiate */
-}
-
-.section-subtitle {
-    text-align: center;
-    font-style: italic;
-    color: #888;
-    margin-top: -10px;
-    margin-bottom: 40px;
-}
-
 /* Animations */
 .reveal {
     opacity: 0;
