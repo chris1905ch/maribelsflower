@@ -154,39 +154,82 @@ document.addEventListener('DOMContentLoaded', () => {
         setInterval(createHeart, 800);
     };
 
-    if (preloader) {
-        // Preloader Hearts - subtle and elegant
-        const createPreloaderHeart = () => {
-            if (!document.getElementById('preloader')) return;
+    // Creative Blooming Preloader Logic
+    const preloader = document.getElementById('preloader');
+    const preloaderText = document.querySelector('.preloader-text');
 
-            const heart = document.createElement('div');
-            heart.classList.add('heart');
-            heart.innerHTML = '❤️';
+    if (preloaderText) {
+        // Split text into letters
+        const text = preloaderText.textContent;
+        preloaderText.textContent = '';
+        text.split('').forEach((char, i) => {
+            const span = document.createElement('span');
+            span.textContent = char === ' ' ? '\u00A0' : char;
+            span.style.transitionDelay = `${2.5 + (i * 0.05)}s`;
+            preloaderText.appendChild(span);
+        });
 
-            // Focus hearts around the logo area
-            const randomX = Math.random() * 60 - 30; // -30 to 30px offset
-            heart.style.left = `calc(50% + ${randomX}px)`;
-            heart.style.bottom = '40%'; // Start near the logo/text
-            heart.style.fontSize = (Math.random() * 5 + 10) + 'px';
-            heart.style.opacity = Math.random() * 0.3 + 0.1;
-
-            preloader.appendChild(heart);
-
-            setTimeout(() => {
-                heart.remove();
-            }, 3000);
-        };
-
-        const preloaderHeartInterval = setInterval(createPreloaderHeart, 600);
-
-        // Wait for preloader to finish (3000ms + 1200ms transition)
+        // Trigger staggered appearance
         setTimeout(() => {
-            clearInterval(preloaderHeartInterval);
-            startHearts();
-        }, 4200);
-    } else {
-        startHearts();
+            preloaderText.querySelectorAll('span').forEach(span => span.classList.add('active'));
+        }, 100);
     }
+
+    // Falling Petal Particles
+    const createPetal = () => {
+        if (!preloader || preloader.classList.contains('finish')) return;
+
+        const petal = document.createElement('div');
+        petal.classList.add('petal');
+
+        // Random petal variety (different pinks/reds)
+        const colors = ['#ff4d6d', '#ff758f', '#ff8fa3', '#ffb3c1'];
+        const color = colors[Math.floor(Math.random() * colors.length)];
+
+        // Random shape (rounded rectangle as petal)
+        petal.style.width = `${Math.random() * 10 + 10}px`;
+        petal.style.height = `${Math.random() * 15 + 10}px`;
+        petal.style.backgroundColor = color;
+        petal.style.borderRadius = '50% 0 50% 50%';
+
+        petal.style.left = `${Math.random() * 100}vw`;
+        petal.style.animation = `petal-fall ${Math.random() * 3 + 4}s linear forwards`;
+
+        preloader.appendChild(petal);
+        setTimeout(() => petal.remove(), 7000);
+    };
+
+    const petalInterval = setInterval(createPetal, 300);
+
+    // Coordinate the reveal
+    window.addEventListener('load', () => {
+        // Ensure minimum 4.5 seconds for the full blooming sequence
+        setTimeout(() => {
+            if (preloader) {
+                preloader.classList.add('finish');
+                clearInterval(petalInterval);
+
+                setTimeout(() => {
+                    preloader.classList.add('hidden');
+                    document.body.classList.remove('loading');
+                    startHearts(); // Start background hearts after main preloader
+                }, 1500); // Wait for liquid reveal animation
+            }
+        }, 4500);
+    });
+
+    // Fallback if window load is too slow/fast
+    setTimeout(() => {
+        if (preloader && !preloader.classList.contains('finish')) {
+            preloader.classList.add('finish');
+            clearInterval(petalInterval);
+            setTimeout(() => {
+                preloader.classList.add('hidden');
+                document.body.classList.remove('loading');
+                startHearts();
+            }, 1500);
+        }
+    }, 8000); // Max 8 seconds preloader
 
     // Lightbox Logic
     const lightbox = document.getElementById('lightbox');
