@@ -7,14 +7,20 @@
     /* Soft Petal Pink */
     --bg-color: #fffafb;
     /* Soft Rose Tinted White */
-    --text-color: #2b0a0a;
-    /* Dark Espresso/Chocolate */
+    --bg-color: #fffafb;
+    /* Soft Rose Tinted White */
+    --text-color: #1a1a1a;
+    /* Deep Black for better contrast */
     --light-text: #fff;
     --font-serif: 'Playfair Display', serif;
     --font-sans: 'Montserrat', sans-serif;
-    --header-height: 80px;
-    --glass-bg: rgba(255, 250, 251, 0.95);
-    --shadow: 0 10px 30px rgba(255, 77, 109, 0.1);
+    --header-height: 90px;
+    /* Taller header */
+    --glass-bg: rgba(255, 250, 251, 0.98);
+    --shadow: 0 10px 30px rgba(0, 0, 0, 0.05), 0 20px 60px rgba(255, 77, 109, 0.05);
+    /* Multi-layered soft shadow */
+    --transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    /* Premium "Webflow" ease */
 }
 
 * {
@@ -210,14 +216,12 @@ nav {
     overflow: hidden;
     /* Ensure image follows the oval shape */
     height: 70px;
-    /* Fixed height for the oval */
     width: 140px;
-    /* Width to maintain oval shape */
 }
 
 .logo:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(197, 160, 89, 0.15);
+    transform: translateY(-2px) scale(1.02);
+    box-shadow: 0 12px 30px rgba(197, 160, 89, 0.15);
     border-color: var(--accent-color);
 }
 
@@ -225,10 +229,8 @@ nav {
     height: 100%;
     width: 100%;
     object-fit: contain;
-    /* Prevent cropping while blending with white background */
-    transition: transform 0.4s ease;
-    padding: 5px;
-    /* Slight padding to keep logo from touching the border */
+    transition: var(--transition);
+    padding: 8px;
 }
 
 .logo:hover img {
@@ -295,10 +297,12 @@ nav {
 
 .hero h1 {
     font-family: var(--font-serif);
-    font-size: 4.5rem;
-    margin-bottom: 20px;
-    line-height: 1.1;
+    font-size: 5rem;
+    /* Larger hero title */
+    margin-bottom: 25px;
+    line-height: 1.05;
     font-weight: 400;
+    letter-spacing: -1px;
 }
 
 .hero p {
@@ -355,7 +359,8 @@ nav {
 
 /* Catalog section */
 .catalog {
-    padding: 120px 0;
+    padding: 160px 0;
+    /* More white space */
 }
 
 .section-title {
@@ -365,9 +370,20 @@ nav {
 
 .section-title h2 {
     font-family: var(--font-serif);
-    font-size: 3rem;
+    font-size: 3.5rem;
     color: var(--primary-color);
     font-weight: 400;
+    margin-bottom: 10px;
+}
+
+.section-tag {
+    display: block;
+    text-transform: uppercase;
+    color: var(--secondary-color);
+    font-size: 0.75rem;
+    letter-spacing: 4px;
+    margin-bottom: 15px;
+    font-weight: 600;
 }
 
 .underline {
@@ -386,23 +402,27 @@ nav {
 }
 
 .filter-btn {
-    padding: 12px 30px;
-    border: none;
-    background: transparent;
-    color: #888;
+    padding: 10px 25px;
+    border: 1px solid #eee;
+    background: #fff;
+    color: #555;
     cursor: pointer;
-    font-weight: 400;
-    transition: all 0.3s;
+    font-weight: 500;
+    transition: var(--transition);
     text-transform: uppercase;
-    letter-spacing: 2px;
-    font-size: 0.8rem;
-    border-bottom: 1px solid transparent;
+    letter-spacing: 1px;
+    font-size: 0.75rem;
+    border-radius: 50px;
+    /* Pill style */
 }
 
 .filter-btn:hover,
 .filter-btn.active {
-    color: var(--secondary-color);
-    border-bottom: 1px solid var(--secondary-color);
+    color: #fff;
+    background: var(--secondary-color);
+    border-color: var(--secondary-color);
+    box-shadow: 0 8px 20px rgba(255, 77, 109, 0.2);
+    transform: translateY(-2px);
 }
 
 .arrangements-grid {
@@ -413,18 +433,18 @@ nav {
 
 .card {
     background: #fff;
-    border-radius: 0;
-    /* Elegant sharp corners */
+    border-radius: 12px;
+    /* Soft corners */
     overflow: hidden;
     box-shadow: var(--shadow);
-    transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
-    border: 1px solid #f0f0f0;
+    transition: var(--transition);
+    border: 1px solid rgba(0, 0, 0, 0.03);
 }
 
 .card:hover {
-    transform: translateY(-15px);
-    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.08);
-    border-color: var(--secondary-color);
+    transform: translateY(-15px) scale(1.02);
+    box-shadow: 0 40px 80px rgba(0, 0, 0, 0.06);
+    border-color: rgba(255, 77, 109, 0.1);
 }
 
 .card-img {
