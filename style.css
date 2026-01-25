@@ -923,29 +923,82 @@ footer {
 }
 
 /* Responsive */
-@media (max-width: 768px) {
+/* Comprehensive Responsive Design */
+@media (max-width: 1024px) {
     .hero h1 {
+        font-size: 4rem;
+    }
+
+    .section-title h2 {
         font-size: 3rem;
+    }
+}
+
+@media (max-width: 768px) {
+    :root {
+        --header-height: 70px;
+    }
+
+    /* Hero Refinement */
+    .hero h1 {
+        font-size: 2.8rem;
+        letter-spacing: 0;
     }
 
     .hero p {
-        font-size: 1.1rem;
+        font-size: 1rem;
+        max-width: 100%;
     }
 
+    /* Section Spacing */
+    .catalog,
+    .faq-section,
+    .contact-section {
+        padding: 80px 0;
+    }
+
+    .section-title h2 {
+        font-size: 2.5rem;
+    }
+
+    /* Grid Adjustments */
+    .arrangements-grid {
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        gap: 20px;
+    }
+
+    /* Hide luxury lines on mobile for clarity */
+    section::before,
+    section::after {
+        display: none;
+    }
+
+    /* Preloader Mobile Scaling */
+    .flower-grow-container {
+        width: 180px;
+        height: 180px;
+    }
+
+    .preloader-text {
+        font-size: 2rem;
+    }
+
+    /* Navigation */
     .nav-links {
         position: fixed;
         right: -100%;
         top: 0;
         height: 100vh;
-        width: 280px;
-        background: var(--glass-bg);
+        width: 100%;
+        /* Full screen menu on mobile */
+        background: var(--bg-color);
         display: flex;
         flex-direction: column;
-        justify-content: flex-start;
-        padding: 100px 40px;
-        transition: right 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+        justify-content: center;
+        align-items: center;
+        padding: 40px;
+        transition: right 0.6s cubic-bezier(0.16, 1, 0.3, 1);
         z-index: 1001;
-        box-shadow: -10px 0 30px rgba(0, 0, 0, 0.05);
     }
 
     .nav-links.show {
@@ -953,46 +1006,50 @@ footer {
     }
 
     .nav-links li {
-        margin: 20px 0;
-        margin-left: 0;
+        margin: 15px 0;
+        font-size: 1.5rem;
     }
 
     .menu-toggle {
         display: block;
-        font-size: 1.5rem;
+        font-size: 1.8rem;
     }
 
     .menu-close {
         display: block;
         position: absolute;
-        top: 30px;
-        right: 30px;
+        top: 25px;
+        right: 25px;
+        font-size: 2rem;
+    }
+
+    .card-img {
+        height: 250px;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero h1 {
+        font-size: 2.2rem;
+    }
+
+    .section-title h2 {
+        font-size: 2rem;
+    }
+
+    .preloader-text {
         font-size: 1.5rem;
-        cursor: pointer;
-        color: var(--primary-color);
     }
 
-    .nav-overlay {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100vh;
-        background: rgba(0, 0, 0, 0.5);
-        opacity: 0;
-        visibility: hidden;
-        transition: all 0.5s ease;
-        z-index: 1000;
+    .filters {
+        flex-wrap: wrap;
+        gap: 10px;
+        justify-content: center;
     }
 
-    .nav-overlay.show {
-        opacity: 1;
-        visibility: visible;
-    }
-
-    .hero-content {
-        text-align: center;
-        padding: 0 20px;
+    .filter-btn {
+        padding: 8px 15px;
+        font-size: 0.7rem;
     }
 }
 

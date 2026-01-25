@@ -22,22 +22,8 @@ document.addEventListener('DOMContentLoaded', () => {
         revealElements.forEach(el => revealObserver.observe(el));
     };
 
-    if (preloader) {
-        // Wait 3 seconds (3000ms) as requested by user
-        setTimeout(() => {
-            preloader.classList.add('slide-up');
-            body.classList.remove('loading');
-
-            // Start reveal animations as preloader fades
-            startRevealAnimations();
-
-            // Remove from DOM after transition completes (1.2s transition in CSS)
-            setTimeout(() => {
-                preloader.remove();
-            }, 1200);
-        }, 3000);
-    } else {
-        // If no preloader, start animations immediately
+    // If no preloader (unlikely), start animations
+    if (!preloader || preloader.style.display === 'none') {
         startRevealAnimations();
     }
 
@@ -211,8 +197,11 @@ document.addEventListener('DOMContentLoaded', () => {
                 setTimeout(() => {
                     preloader.classList.add('hidden');
                     document.body.classList.remove('loading');
-                    startHearts(); // Start background hearts after main preloader
-                }, 1500); // Wait for liquid reveal animation
+                    startHearts();
+                    startRevealAnimations(); // Trigger reveals after preloader is gone
+
+                    setTimeout(() => preloader.remove(), 500);
+                }, 1500);
             }
         }, 4500);
     });
