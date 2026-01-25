@@ -68,9 +68,10 @@ body.loading {
 }
 
 .flower-grow-container {
-    width: 150px;
-    height: 150px;
-    margin: 0 auto 30px;
+    width: 250px;
+    /* Larger Flower */
+    height: 250px;
+    margin: 0 auto 40px;
 }
 
 .flower-svg {
@@ -130,6 +131,15 @@ body.loading {
     to {
         transform: scale(1);
     }
+}
+
+.preloader-text {
+    font-family: var(--font-serif);
+    font-size: 3.5rem;
+    /* Massive Premium Text */
+    color: var(--primary-color);
+    letter-spacing: 5px;
+    font-weight: 400;
 }
 
 .split-text span {
