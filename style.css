@@ -1,29 +1,42 @@
 :root {
+    /* Normal Mode (Boutique Elegant) */
     --primary-color: #5c0000;
     /* Deep Romantic Red */
     --secondary-color: #ff4d6d;
     /* Vivid Rose Pink */
-    --accent-color: #ff85a1;
-    /* Soft Petal Pink */
-    --bg-color: #fffafb;
-    /* Soft Rose Tinted White */
     --accent-color: #c5a059;
-    /* Soft Petal Pink */
+    /* Classic Gold */
     --gold-foil: linear-gradient(45deg, #c5a059 0%, #e8d2a0 50%, #c5a059 100%);
     --bg-color: #fffafb;
     /* Soft Rose Tinted White */
     --text-color: #1a1a1a;
-    /* Deep Black for better contrast */
     --light-text: #fff;
     --font-serif: 'Playfair Display', serif;
     --font-sans: 'Montserrat', sans-serif;
     --header-height: 90px;
-    /* Taller header */
     --glass-bg: rgba(255, 250, 251, 0.98);
     --shadow: 0 10px 30px rgba(0, 0, 0, 0.05), 0 20px 60px rgba(255, 77, 109, 0.05);
-    /* Multi-layered soft shadow */
     --transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
-    /* Ultra-smooth Premium ease */
+    --pattern-opacity: 0.15;
+    --pattern-url: url("https://www.transparenttextures.com/patterns/p6.png");
+    /* Grain */
+}
+
+/* Valentine Mode Overrides */
+body.theme-valentine {
+    --primary-color: #ff4d6d;
+    /* Vibrant Rose */
+    --secondary-color: #ff758f;
+    /* Hot Pink */
+    --accent-color: #ff8fa3;
+    /* Soft Pink */
+    --gold-foil: linear-gradient(45deg, #ff4d6d 0%, #ff8fa3 50%, #ff4d6d 100%);
+    /* Pink Foil */
+    --bg-color: #fff5f7;
+    /* Intended Pink Background */
+    --pattern-opacity: 0.25;
+    --pattern-url: url("https://www.transparenttextures.com/patterns/hearts.png");
+    /* Hearts Pattern */
 }
 
 * {
@@ -56,9 +69,8 @@ body::before {
     left: 0;
     width: 100%;
     height: 100%;
-    background-image: url("https://www.transparenttextures.com/patterns/p6.png");
-    /* Subtle Paper/Grain */
-    opacity: 0.15;
+    background-image: var(--pattern-url);
+    opacity: var(--pattern-opacity);
     pointer-events: none;
     z-index: 10000;
 }

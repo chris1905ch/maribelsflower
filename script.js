@@ -137,7 +137,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Only start hearts after preloader is gone or if no preloader
     const startHearts = () => {
-        setInterval(createHeart, 800);
+        const isValentine = document.body.classList.contains('theme-valentine');
+        const interval = isValentine ? 400 : 1000; // More hearts in Valentine mode
+        setInterval(createHeart, interval);
     };
 
     // Creative Blooming Preloader Logic
