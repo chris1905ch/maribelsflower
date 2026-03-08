@@ -33,9 +33,11 @@ export default async function handler(req, res) {
                 description: fields.Descripcion || "",
                 price: fields.Precio || "$0.00",
                 category: fields.Categoria || "otros",
-                // Handle images (assuming Attachment field or URL field)
-                image: Array.isArray(fields.ImagenURL)
-                    ? fields.ImagenURL[0].url
+                // First Priority: Attachment field (ImagenArchivo)
+                // Second Priority: URL field (ImagenURL)
+                // Fallback: Placeholder
+                image: (Array.isArray(fields.ImagenArchivo) && fields.ImagenArchivo.length > 0)
+                    ? fields.ImagenArchivo[0].url
                     : (fields.ImagenURL || "assets/placeholder.png"),
                 alt: fields.Nombre || "Imagen de arreglo floral"
             };
