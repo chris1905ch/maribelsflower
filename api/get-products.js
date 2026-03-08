@@ -41,8 +41,8 @@ export default async function handler(req, res) {
             };
         });
 
-        // Set cache headers for better performance (1 hour)
-        res.setHeader('Cache-Control', 's-maxage=3600, stale-while-revalidate');
+        // Set cache headers for better performance (1 minute for now to allow testing)
+        res.setHeader('Cache-Control', 's-maxage=60, stale-while-revalidate');
         return res.status(200).json(products);
     } catch (error) {
         console.error("Airtable fetch error:", error);
