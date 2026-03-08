@@ -369,6 +369,7 @@ nav {
     line-height: 1.05;
     font-weight: 400;
     letter-spacing: -1px;
+    color: var(--secondary-color);
 }
 
 .hero p {
@@ -378,7 +379,7 @@ nav {
     font-weight: 400;
     letter-spacing: 2px;
     text-transform: uppercase;
-    color: var(--accent-color);
+    color: var(--secondary-color);
     opacity: 0.9;
 }
 
