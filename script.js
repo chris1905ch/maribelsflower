@@ -90,7 +90,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const loadProducts = async () => {
         try {
-            const response = await fetch('products.json');
+            // Updated to fetch from our new Airtable API
+            const response = await fetch('/api/get-products');
             const products = await response.json();
 
             if (grid) {
