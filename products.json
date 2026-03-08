@@ -1,0 +1,137 @@
+[
+    {
+        "id": 1,
+        "name": "Suspiro de Amor",
+        "description": "Elegante combinación de rosas en tonos rosados y crema.",
+        "price": "$45.00",
+        "category": "romantico",
+        "image": "assets/arrangement_premium_rose.png",
+        "alt": "Arreglo de rosas rosadas y crema - Floristería Maribel Santa Ana"
+    },
+    {
+        "id": 2,
+        "name": "Gala Imperial",
+        "description": "Arreglo majestuoso con lirios, hidrangeas y follaje premium.",
+        "price": "$85.00",
+        "category": "premium",
+        "image": "assets/hero_flower_arrangement.png",
+        "alt": "Arreglo floral premium majestuoso - Flores en El Salvador"
+    },
+    {
+        "id": 3,
+        "name": "Amanecer Alegre",
+        "description": "Vibrantes lirios naranjas con toques de verde azulado.",
+        "price": "$35.00",
+        "category": "primavera",
+        "image": "assets/arrangement_spring_lilies_teal.png",
+        "alt": "Arreglo de lirios naranjas - Envío de flores en Santa Ana"
+    },
+    {
+        "id": 4,
+        "name": "Paz Eterna",
+        "description": "Elegante corona fúnebre con rosas blancas y lirios de paz.",
+        "price": "$120.00",
+        "category": "funerarios",
+        "image": "assets/funerarios/Gemini_Generated_Image_200h3w200h3w200h.png",
+        "alt": "Corona fúnebre de rosas blancas - Maribel's Flower Shop"
+    },
+    {
+        "id": 5,
+        "name": "Corazón de Pasión",
+        "description": "Arreglo en forma de corazón con las mejores rosas rojas premium.",
+        "price": "$55.00",
+        "category": "romantico",
+        "image": "assets/arrangement_romantic_rose_heart.png",
+        "alt": "Arreglo de rosas rojas en forma de corazón - Santa Ana, El Salvador"
+    },
+    {
+        "id": 6,
+        "name": "Dulzura de Tulipanes",
+        "description": "Tiernos tulipanes rosados acompañados de nube blanca.",
+        "price": "$42.00",
+        "category": "romantico",
+        "image": "assets/arrangement_romantic_pink_tulips.png",
+        "alt": "Ramo de tulipanes rosados - Maribel's Flower Shop"
+    },
+    {
+        "id": 7,
+        "name": "Luz Divina",
+        "description": "Cojín fúnebre con una combinación solemne de flores en tonos blancos y lilas.",
+        "price": "$95.00",
+        "category": "funerarios",
+        "image": "assets/funerarios/Gemini_Generated_Image_39uxx939uxx939ux.png",
+        "alt": "Cojín fúnebre con flores blancas y lilas - Floristería Santa Ana"
+    },
+    {
+        "id": 8,
+        "name": "Consuelo Celestial",
+        "description": "Fino arreglo de pedestal con gladiolas y lirios blancos.",
+        "price": "$110.00",
+        "category": "funerarios",
+        "image": "assets/funerarios/Gemini_Generated_Image_7rv7ih7rv7ih7rv7.png",
+        "alt": "Arreglo de pedestal fúnebre celestial - Maribel's Flower Shop"
+    },
+    {
+        "id": 9,
+        "name": "Rayo de Sol",
+        "description": "Girasoles radiantes y margaritas para iluminar cualquier día.",
+        "price": "$30.00",
+        "category": "primavera",
+        "image": "assets/arrangement_spring_sunflowers.png",
+        "alt": "Arreglo de girasoles y margaritas - Floristería en Santa Ana"
+    },
+    {
+        "id": 10,
+        "name": "Jardín de Colores",
+        "description": "Mezcla Silvestre de flores de temporada llenas de vida.",
+        "price": "$38.00",
+        "category": "primavera",
+        "image": "assets/arrangement_spring_mixed_garden.png",
+        "alt": "Canasta de flores silvestres mixtas - Flores El Salvador"
+    },
+    {
+        "id": 11,
+        "name": "Homenaje Supremo",
+        "description": "Arreglo de pedestal alto con flores premium para un tributo inolvidable.",
+        "price": "$150.00",
+        "category": "funerarios",
+        "image": "assets/funerarios/Gemini_Generated_Image_5q38eg5q38eg5q38.png",
+        "alt": "Arreglo de pedestal fúnebre premium - Flores El Salvador"
+    },
+    {
+        "id": 12,
+        "name": "Serenidad Infinita",
+        "description": "Combinación de rosas blancas y follaje delicado para momentos de calma.",
+        "price": "$85.00",
+        "category": "funerarios",
+        "image": "assets/funerarios/Gemini_Generated_Image_ab5dspab5dspab5d.png",
+        "alt": "Arreglo fúnebre serenidad infinita - Santa Ana"
+    },
+    {
+        "id": 13,
+        "name": "Elegancia Blanca",
+        "description": "Exclusivas orquídeas y lirios cala en una presentación de lujo.",
+        "price": "$95.00",
+        "category": "premium",
+        "image": "assets/arrangement_premium_orchids_white.png",
+        "alt": "Arreglo de orquídeas blancas de lujo - Floristería Santa Ana"
+    },
+    {
+        "id": 14,
+        "name": "Paraíso Exótico",
+        "description": "Flores de paraíso y jengibre tropical para un regalo impactante.",
+        "price": "$75.00",
+        "category": "premium",
+        "image": "assets/arrangement_premium_exotic_paradise.png",
+        "alt": "Arreglo floral exótico tropical - Maribel's Flower Shop SV"
+    },
+    {
+        "id": 15,
+        "name": "Recuerdo de Vida",
+        "description": "Cesta solemne de flores mixtas blancas para honrar la vida.",
+        "price": "$70.00",
+        "category": "funerarios",
+        "image": "assets/funerarios/Gemini_Generated_Image_fs7g7qfs7g7qfs7g.png",
+        "alt": "Arreglo fúnebre recuerdo de vida - Floristería Maribel"
+    }
+]

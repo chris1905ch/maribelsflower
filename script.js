@@ -36,36 +36,79 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // Filter Logic for Catalog
+    // Dynamic Catalog Logic
+    const grid = document.querySelector('.arrangements-grid');
     const filterButtons = document.querySelectorAll('.filter-btn');
-    const cards = document.querySelectorAll('.card');
 
-    filterButtons.forEach(btn => {
-        btn.addEventListener('click', () => {
-            // Remove active class from all buttons
-            filterButtons.forEach(b => b.classList.remove('active'));
-            // Add active class to clicked button
-            btn.classList.add('active');
+    const createProductCard = (product, index) => {
+        const delay = (index % 3) * 0.1;
+        return `
+            <div class="card reveal reveal-up" data-category="${product.category}" style="transition-delay: ${delay}s">
+                <div class="card-img" data-product-id="${product.id}">
+                    <img src="${product.image}"
+                        alt="${product.alt}" loading="lazy"
+                        decoding="async">
+                </div>
+                <div class="card-info">
+                    <h3>${product.name}</h3>
+                    <p>${product.description}</p>
+                    <span class="price">${product.price}</span>
+                    <a href="https://wa.me/50372788297?text=Hola,%20me%20interesa%20ordenar%20el%20arreglo%20${encodeURIComponent(product.name)}"
+                        class="btn-order">Ordenar por WhatsApp</a>
+                </div>
+            </div>
+        `;
+    };
 
-            const filterValue = btn.getAttribute('data-filter');
+    const initFilters = () => {
+        filterButtons.forEach(btn => {
+            btn.addEventListener('click', () => {
+                filterButtons.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
 
-            cards.forEach(card => {
-                if (filterValue === 'all' || card.getAttribute('data-category') === filterValue) {
-                    card.style.display = 'block';
-                    setTimeout(() => {
-                        card.style.opacity = '1';
-                        card.style.transform = 'translateY(0)';
-                    }, 50);
-                } else {
-                    card.style.opacity = '0';
-                    card.style.transform = 'translateY(20px)';
-                    setTimeout(() => {
-                        card.style.display = 'none';
-                    }, 300);
-                }
+                const filterValue = btn.getAttribute('data-filter');
+                const cards = document.querySelectorAll('.card');
+
+                cards.forEach(card => {
+                    if (filterValue === 'all' || card.getAttribute('data-category') === filterValue) {
+                        card.style.display = 'block';
+                        setTimeout(() => {
+                            card.style.opacity = '1';
+                            card.style.transform = 'translateY(0)';
+                        }, 50);
+                    } else {
+                        card.style.opacity = '0';
+                        card.style.transform = 'translateY(20px)';
+                        setTimeout(() => {
+                            card.style.display = 'none';
+                        }, 300);
+                    }
+                });
             });
         });
-    });
+    };
+
+    const loadProducts = async () => {
+        try {
+            const response = await fetch('products.json');
+            const products = await response.json();
+
+            if (grid) {
+                grid.innerHTML = products.map((p, i) => createProductCard(p, i)).join('');
+
+                // Re-initialize reveals for new cards
+                startRevealAnimations();
+                // Re-initialize filters and lightbox logic for new content
+                initFilters();
+                initLightbox();
+            }
+        } catch (error) {
+            console.error('Error loading products:', error);
+            if (grid) grid.innerHTML = '<p class="error">Error al cargar el catálogo. Por favor intenta más tarde.</p>';
+        }
+    };
+
+    loadProducts();
 
     // Mobile Menu Logic
     const mobileMenuBtn = document.getElementById('mobile-menu');
@@ -227,21 +270,18 @@ document.addEventListener('DOMContentLoaded', () => {
     const captionText = document.getElementById('lightbox-caption');
     const closeBtn = document.querySelector('.lightbox-close');
 
-    // Get all card images
-    const cardImages = document.querySelectorAll('.card-img img');
-
-    cardImages.forEach(img => {
-        img.parentElement.addEventListener('click', () => {
-            lightbox.style.display = 'block';
-            lightboxImg.src = img.src;
-            // Use the arrangement title as caption
-            const cardInfo = img.closest('.card').querySelector('.card-info h3');
-            captionText.innerHTML = cardInfo ? cardInfo.innerText : img.alt;
-
-            // Disable scroll
-            document.body.style.overflow = 'hidden';
+    const initLightbox = () => {
+        const cardImages = document.querySelectorAll('.card-img img');
+        cardImages.forEach(img => {
+            img.parentElement.onclick = () => {
+                lightbox.style.display = 'block';
+                lightboxImg.src = img.src;
+                const cardInfo = img.closest('.card').querySelector('.card-info h3');
+                captionText.innerHTML = cardInfo ? cardInfo.innerText : img.alt;
+                document.body.style.overflow = 'hidden';
+            };
         });
-    });
+    };
 
     const closeLightbox = () => {
         lightbox.style.display = 'none';
