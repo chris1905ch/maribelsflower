@@ -364,12 +364,12 @@ nav {
 .hero h1 {
     font-family: var(--font-serif);
     font-size: 5rem;
-    /* Larger hero title */
     margin-bottom: 25px;
     line-height: 1.05;
     font-weight: 400;
     letter-spacing: -1px;
-    color: var(--secondary-color);
+    color: #ffe4e9;
+    /* Pastel Claro for contrast */
 }
 
 .hero p {
@@ -379,7 +379,8 @@ nav {
     font-weight: 400;
     letter-spacing: 2px;
     text-transform: uppercase;
-    color: var(--secondary-color);
+    color: #ffe4e9;
+    /* Pastel Claro for contrast */
     opacity: 0.9;
 }
 
