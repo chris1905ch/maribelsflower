@@ -307,4 +307,203 @@ document.addEventListener('DOMContentLoaded', () => {
             closeLightbox();
         }
     });
+
+    // FAQ Accordion Toggle
+    const initAccordion = () => {
+        const accordionHeaders = document.querySelectorAll('.faq-accordion-header');
+        accordionHeaders.forEach(header => {
+            header.addEventListener('click', () => {
+                const item = header.parentElement;
+                const content = item.querySelector('.faq-accordion-content');
+                const isActive = item.classList.contains('active');
+                
+                // Close other items
+                document.querySelectorAll('.faq-accordion-item').forEach(otherItem => {
+                    if (otherItem !== item) {
+                        otherItem.classList.remove('active');
+                        otherItem.querySelector('.faq-accordion-content').style.maxHeight = null;
+                    }
+                });
+                
+                // Toggle current item
+                if (isActive) {
+                    item.classList.remove('active');
+                    content.style.maxHeight = null;
+                } else {
+                    item.classList.add('active');
+                    content.style.maxHeight = content.scrollHeight + 'px';
+                }
+            });
+        });
+    };
+    initAccordion();
+
+    // WhatsApp Tooltip Auto-show
+    const initWhatsAppTooltip = () => {
+        const waContainer = document.querySelector('.whatsapp-container');
+        if (waContainer) {
+            // Show tooltip after 4 seconds
+            setTimeout(() => {
+                waContainer.classList.add('show-tooltip');
+                // Hide it after 6 seconds of visibility
+                setTimeout(() => {
+                    waContainer.classList.remove('show-tooltip');
+                }, 6000);
+            }, 4000);
+        }
+    };
+    initWhatsAppTooltip();
+
+    // Scroll Progress Bar Logic
+    const initScrollProgress = () => {
+        const progressBar = document.getElementById('scroll-progress');
+        if (progressBar) {
+            window.addEventListener('scroll', () => {
+                const winScroll = document.documentElement.scrollTop || document.body.scrollTop;
+                const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+                const scrolled = (winScroll / height) * 100;
+                progressBar.style.width = scrolled + '%';
+            });
+        }
+    };
+    initScrollProgress();
+
+    // Flower Care Cards Toggle (Mobile tap compatibility)
+    const initCareCards = () => {
+        const careCards = document.querySelectorAll('.care-card');
+        careCards.forEach(card => {
+            card.addEventListener('click', (e) => {
+                if (e.target.tagName === 'A') return;
+                card.classList.toggle('flipped');
+            });
+        });
+    };
+    initCareCards();
+
+    // Testimonials Slider Logic
+    const initTestimonialsSlider = () => {
+        const slides = document.querySelectorAll('.testimonial-slide');
+        const dots = document.querySelectorAll('.dot');
+        const prevBtn = document.querySelector('.prev-btn');
+        const nextBtn = document.querySelector('.next-btn');
+        const container = document.querySelector('.testimonials-slider-container');
+        
+        if (!slides.length) return;
+        
+        let currentSlide = 0;
+        let slideInterval;
+        
+        const showSlide = (index) => {
+            slides.forEach(slide => slide.classList.remove('active'));
+            dots.forEach(dot => dot.classList.remove('active'));
+            
+            currentSlide = (index + slides.length) % slides.length;
+            slides[currentSlide].classList.add('active');
+            if (dots[currentSlide]) {
+                dots[currentSlide].classList.add('active');
+            }
+        };
+        
+        const nextSlide = () => {
+            showSlide(currentSlide + 1);
+        };
+        
+        const prevSlide = () => {
+            showSlide(currentSlide - 1);
+        };
+        
+        const startAutoPlay = () => {
+            slideInterval = setInterval(nextSlide, 6000);
+        };
+        
+        const stopAutoPlay = () => {
+            clearInterval(slideInterval);
+        };
+        
+        if (nextBtn) nextBtn.addEventListener('click', () => {
+            nextSlide();
+            stopAutoPlay();
+            startAutoPlay();
+        });
+        
+        if (prevBtn) prevBtn.addEventListener('click', () => {
+            prevSlide();
+            stopAutoPlay();
+            startAutoPlay();
+        });
+        
+        dots.forEach(dot => {
+            dot.addEventListener('click', () => {
+                const index = parseInt(dot.getAttribute('data-index'), 10);
+                showSlide(index);
+                stopAutoPlay();
+                startAutoPlay();
+            });
+        });
+        
+        if (container) {
+            container.addEventListener('mouseenter', stopAutoPlay);
+            container.addEventListener('mouseleave', startAutoPlay);
+        }
+        
+        startAutoPlay();
+    };
+    initTestimonialsSlider();
+
+    // Word Rotator Logic
+    const initWordRotator = () => {
+        const words = document.querySelectorAll('.word-rotator .word');
+        const rotator = document.querySelector('.word-rotator');
+        if (!words.length || !rotator) return;
+        
+        const adjustWidth = (element) => {
+            rotator.style.width = (element.offsetWidth + 10) + 'px';
+        };
+        
+        adjustWidth(words[0]);
+        setTimeout(() => adjustWidth(words[0]), 500);
+        
+        let index = 0;
+        setInterval(() => {
+            const current = words[index];
+            current.classList.remove('active');
+            current.classList.add('exit');
+            
+            index = (index + 1) % words.length;
+            
+            const next = words[index];
+            next.classList.remove('exit');
+            next.classList.add('active');
+            
+            adjustWidth(next);
+            
+            setTimeout(() => {
+                current.classList.remove('exit');
+            }, 500);
+        }, 3000);
+    };
+    initWordRotator();
+
+    // Magnetic Button Effect
+    const initMagneticButton = () => {
+        const button = document.querySelector('.btn-primary');
+        if (!button) return;
+        
+        if (window.matchMedia('(hover: hover)').matches) {
+            button.addEventListener('mousemove', (e) => {
+                const rect = button.getBoundingClientRect();
+                const x = e.clientX - rect.left - rect.width / 2;
+                const y = e.clientY - rect.top - rect.height / 2;
+                
+                button.style.transform = `translate(${x * 0.3}px, ${y * 0.3}px) scale(1.05)`;
+                button.style.transition = 'transform 0.1s ease-out';
+            });
+            
+            button.addEventListener('mouseleave', () => {
+                button.style.transform = 'translate(0, 0) scale(1)';
+                button.style.transition = 'transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275)';
+            });
+        }
+    };
+    initMagneticButton();
 });
